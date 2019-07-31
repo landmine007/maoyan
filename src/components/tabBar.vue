@@ -17,12 +17,7 @@
 
 <script>
 export default {
-  name: 'tabBar',
-  data() {
-    return {
-      
-    }
-  }
+  name: 'TabBar'
 }
 </script>
 

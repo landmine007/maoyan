@@ -3,7 +3,7 @@
     <Hearder></Hearder>
     <div class="tabs">
       <div class="city">
-        <span>{{city}}</span>
+        <span>{{ city }}</span>
         <i class="iconfont icon-f11"></i>
       </div>
       <div class="tab">

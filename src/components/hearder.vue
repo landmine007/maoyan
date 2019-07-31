@@ -1,7 +1,7 @@
 <template>
   <div class="hearder">
-    <i class="iconfont icon-fanhui" v-if="back"></i>
-    <h1>{{title}}</h1>
+    <i v-if="back" class="iconfont icon-fanhui"></i>
+    <h1>{{ title }}</h1>
   </div>
 </template>
 

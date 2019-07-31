@@ -8,12 +8,11 @@
 </template>
 
 <script>
-import tabBar from './components/tabBar'
+import TabBar from './components/tabBar'
 export default {
-  components: { tabBar }
+  components: { TabBar }
 }
 </script>
-
 
 <style lang="scss">
   html, body, #app{
