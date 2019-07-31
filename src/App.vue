@@ -33,5 +33,8 @@ export default {
       bottom: .49rem;
       width: 100%;
     }
+    #app {
+      position: relative;
+    }
   }
 </style>
