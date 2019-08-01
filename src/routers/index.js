@@ -16,6 +16,11 @@ export default new Router({
       name: 'home',
       redirect: '/movie'
     },
+    {
+      path: '/selectCity',
+      name: 'selectCity',
+      component: () => import('@/pages/selectCity/index')
+    },
     cinemaRouter,
     movieRouter,
     mineRouter

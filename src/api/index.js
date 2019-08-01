@@ -12,3 +12,29 @@ export function getMovieOnInfoList(params) {
     params
   })
 }
+
+/**
+ * 正在热映电影数据加载更多
+ * method: get
+ * url: /ajax/moreComingList
+ */
+export function getMoreComingList(params) {
+  return request({
+    method: 'GET',
+    url: '/ajax/moreComingList',
+    params
+  })
+}
+
+/**
+ * 即将上映近期最受期待
+ * method: get
+ * url: /ajax/mostExpected
+ */
+export function getMostExpected(params) {
+  return request({
+    method: 'GET',
+    url: '/ajax/mostExpected',
+    params
+  })
+}
