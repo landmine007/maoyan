@@ -157,7 +157,6 @@ export default {
       this.current = index
     },
     selectCity() {
-      console.log(this.$router)
       this.$router.push('/selectCity')
     }
   }

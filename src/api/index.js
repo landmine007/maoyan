@@ -38,3 +38,16 @@ export function getMostExpected(params) {
     params
   })
 }
+
+/**
+ * 城市列表数据
+ * method: get
+ * url: /data/citys.json
+ */
+export function getCitys(params) {
+  return request({
+    method: 'GET',
+    url: '/data/citys.json',
+    params
+  })
+}
