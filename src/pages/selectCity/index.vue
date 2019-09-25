@@ -126,124 +126,7 @@ export default {
         }
       ],
       cityList: [],
-      navList: [
-        {
-          id: 'local',
-          title: '定位'
-        },
-        {
-          id: 'historCity',
-          title: '最近'
-        },
-        {
-          id: 'hotCity',
-          title: '热门'
-        },
-        {
-          id: 'A',
-          title: 'A'
-        },
-        {
-          id: 'B',
-          title: 'B'
-        },
-        {
-          id: 'C',
-          title: 'C'
-        },
-        {
-          id: 'D',
-          title: 'D'
-        },
-        {
-          id: 'E',
-          title: 'E'
-        },
-        {
-          id: 'F',
-          title: 'F'
-        },
-        {
-          id: 'G',
-          title: 'G'
-        },
-        {
-          id: 'H',
-          title: 'H'
-        },
-        {
-          id: 'I',
-          title: 'I'
-        },
-        {
-          id: 'J',
-          title: 'J'
-        },
-        {
-          id: 'K',
-          title: 'K'
-        },
-        {
-          id: 'L',
-          title: 'L'
-        },
-        {
-          id: 'M',
-          title: 'M'
-        },
-        {
-          id: 'N',
-          title: 'N'
-        },
-        {
-          id: 'O',
-          title: 'O'
-        },
-        {
-          id: 'P',
-          title: 'P'
-        },
-        {
-          id: 'Q',
-          title: 'Q'
-        },
-        {
-          id: 'R',
-          title: 'R'
-        },
-        {
-          id: 'S',
-          title: 'S'
-        },
-        {
-          id: 'T',
-          title: 'T'
-        },
-        {
-          id: 'U',
-          title: 'U'
-        },
-        {
-          id: 'V',
-          title: 'V'
-        },
-        {
-          id: 'W',
-          title: 'W'
-        },
-        {
-          id: 'X',
-          title: 'X'
-        },
-        {
-          id: 'Y',
-          title: 'Y'
-        },
-        {
-          id: 'Z',
-          title: 'Z'
-        }
-      ]
+      navList: []
     }
   },
   created() {
@@ -274,17 +157,40 @@ export default {
       const that = this
       const citys = localStorage.getItem('cityList')
       if (citys) {
-        const result = this.first_letter_group(JSON.parse(citys), 'py')
-        that.cityList = [...result]
+        that.getLetter(JSON.parse(citys))
       } else {
         // 请求数据
         getCitys({}).then(res => {
           const list = res.data.data
-          const result = this.first_letter_group(list, 'py')
-          that.cityList = [...result]
+          that.getLetter(list)
           localStorage.setItem('cityList', JSON.stringify(list))
         }).catch()
       }
+    },
+    getLetter(list) {
+      const result = this.first_letter_group(list, 'py')
+        const nav = result.map(item => {
+          return {
+            id: item.letter,
+            title: item.letter
+          }
+        })
+        this.navList = [
+          {
+            id: 'local',
+            title: '定位'
+          },
+          {
+            id: 'historCity',
+            title: '最近'
+          },
+          {
+            id: 'hotCity',
+            title: '热门'
+          },
+          ...nav
+        ]
+        this.cityList = [...result]
     },
     // 按拼音首字母分组
     first_letter_group(arr, str) {
@@ -341,8 +247,8 @@ export default {
       text-align: center;
       font-size: 0.12rem;
       div {
-        height: 0.18rem;
-        line-height: 0.18rem;
+        height: 0.2rem;
+        line-height: 0.12rem;
         text-align: center;
         font-size: 0.12rem;
       }
